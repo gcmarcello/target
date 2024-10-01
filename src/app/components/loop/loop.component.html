@@ -1,0 +1,38 @@
+<div class="p-6 bg-white rounded-lg shadow-lg max-w-md mx-auto">
+  <div class="mb-4">
+    <h1 class="text-3xl text-gray-900 font-semibold leading-tight mb-4">
+      Observe o trecho de código abaixo:
+    </h1>
+  </div>
+
+  {{
+    "int INDICE = 12, SOMA = 0, K = 1; enquanto K menor que INDICE faça { K = K + 1; SOMA = SOMA + K; } imprimir(SOMA);"
+  }}
+
+  <div class="flex flex-col space-y-4 my-4">
+    <p class="text-gray-600 text-base mb-2">
+      Ao final do processamento, qual será o valor da variável SOMA?
+    </p>
+    <div class="mx-auto">
+      <div class="font-medium">INDICE = {{ INDICE }}</div>
+      <div class="font-medium">K = {{ K }}</div>
+      <div class="font-medium">SOMA = {{ SOMA }}</div>
+    </div>
+    <div class="flex justify-center gap-4">
+      <button
+        (click)="loop()"
+        [disabled]="getK() !== 1"
+        class="inline-flex items-center px-2 py-2 bg-gradient-to-r from-red-500 to-violet-700 via-vivid-pink to-electric-violet text-white font-medium rounded-lg shadow-sm transition-transform transform hover:-translate-y-1 focus:ring-2 focus:ring-bright-blue focus:outline-none"
+      >
+        Iniciar Loop
+      </button>
+
+      <button
+        (click)="resetAndClear()"
+        class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-900 font-medium rounded-lg shadow-sm hover:bg-gray-400 transition-colors focus:ring-2 focus:ring-gray-700 focus:outline-none"
+      >
+        Cancelar e Resetar
+      </button>
+    </div>
+  </div>
+</div>
