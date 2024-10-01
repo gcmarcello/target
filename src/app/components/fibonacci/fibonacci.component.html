@@ -1,1 +1,49 @@
-<p>fibonacci works!</p>
+<div class="p-6 bg-white rounded-lg shadow-lg max-w-md mx-auto">
+  <div class="mb-4">
+    <h1 class="text-3xl text-gray-900 font-semibold leading-tight mb-4">
+      Fibonacci
+    </h1>
+  </div>
+  <div class="mb-4">
+    <label for="Escolha" class="block text-gray-900 font-medium mb-2">
+      Escolha um número para encontrar a sequência Fibonacci, partindo de 0 até
+      o número escolhido.
+    </label>
+    <input
+      #number
+      class="form-control w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-bright-blue focus:border-transparent"
+      id="number"
+      type="number"
+      value="30"
+      min="0"
+    />
+    <div *ngIf="isNumberInSequence(number.value)" class="text-green-500 mt-2">
+      Número faz parte da sequência!
+    </div>
+  </div>
+
+  <div class="flex space-x-4 mb-4">
+    <button
+      (click)="findFibonacciSequence(number.value)"
+      class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-500 to-violet-700 via-vivid-pink to-electric-violet text-white font-medium rounded-lg shadow-sm transition-transform transform hover:-translate-y-1 focus:ring-2 focus:ring-bright-blue focus:outline-none"
+    >
+      Filtrar
+    </button>
+    <button
+      (click)="setNumbers([])"
+      class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-900 font-medium rounded-lg shadow-sm hover:bg-gray-400 transition-colors focus:ring-2 focus:ring-gray-700 focus:outline-none"
+    >
+      Limpar
+    </button>
+  </div>
+
+  <div class="mb-4">
+    <ul class="list-disc list-inside space-y-1">
+      <li *ngFor="let number of getNumbers()">{{ number }}</li>
+    </ul>
+  </div>
+
+  <div *ngIf="getError()" class="text-red-500">
+    {{ getError() }}
+  </div>
+</div>
